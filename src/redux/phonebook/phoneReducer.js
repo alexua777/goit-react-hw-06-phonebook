@@ -13,7 +13,7 @@ const onAddContact = (state, action) => {
 };
 
 const onRemoveContact = (state, action) =>
-  state.filter(contacts => contacts.id !== action.payload.id);
+  state.filter(contacts => contacts.id !== action.payload);
 
 const contacts = createReducer([], {
   [phoneActions.addPhone]: onAddContact,

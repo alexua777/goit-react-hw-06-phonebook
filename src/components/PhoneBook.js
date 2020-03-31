@@ -2,12 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import phoneActions from "../redux/phonebook/phoneActions";
 
-
 const container = {
-  margin: "25px",
-}
+  margin: "25px"
+};
 const formStyle = {
- 
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-around",
@@ -26,28 +24,25 @@ const inputStyle = {
   border: "1px solid black",
   display: "inline-block",
   height: "34px",
-  borderRadius: "22px",
   width: "220px",
   boxSizing: "border-box",
   padding: "0 18px",
-  marginBottom: "10px",
+  marginBottom: "10px"
 };
 
 const buttonStyle = {
-  
-	background:"linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%)",
-	backgroundColor:"#3d94f6",
-	borderRadius:"6px",
-	border:"1px solid #337fed",
-	cursor:"pointer",
-	color:"#ffffff",
-	fontFamily:"Arial",
-	fontSize:"16px",
-	fontWeight:"bold",
-	padding:"9px 76px",
-  textDecoration:"none",
-  marginTop:"10px",
-	
+  background: "linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%)",
+  backgroundColor: "#3d94f6",
+  borderRadius: "6px",
+  border: "1px solid #337fed",
+  cursor: "pointer",
+  color: "#ffffff",
+  fontFamily: "Arial",
+  fontSize: "16px",
+  fontWeight: "bold",
+  padding: "9px 76px",
+  textDecoration: "none",
+  marginTop: "10px"
 };
 
 class PhoneBook extends Component {
@@ -72,35 +67,37 @@ class PhoneBook extends Component {
   render() {
     return (
       <>
-      <div style={container}>
-      <h1>Phonebook</h1>
-      <form onSubmit={this.handleSubmit} style={formStyle}>
-        <label style={labelStyle}>
-          Name <br />
-          <input
-            type="text"
-            value={this.state.name}
-            onChange={this.handleChange}
-            name="name"
-            style={inputStyle}
-          />
-        </label>
+        <div style={container}>
+          <h1>Phonebook</h1>
+          <form onSubmit={this.handleSubmit} style={formStyle}>
+            <label style={labelStyle}>
+              Name <br />
+              <input
+                type="text"
+                value={this.state.name}
+                onChange={this.handleChange}
+                name="name"
+                style={inputStyle}
+              />
+            </label>
 
-        <label>
-          Phone Number
-          <br />
-          <input
-            type="number"
-            value={this.state.number}
-            onChange={this.handleChange}
-            name="number"
-            style={inputStyle}
-          />
-        </label>
-        <button type="submit" style={buttonStyle}> Add contact</button>
-      </form>
-      </div>
-     
+            <label>
+              Phone Number
+              <br />
+              <input
+                type="number"
+                value={this.state.number}
+                onChange={this.handleChange}
+                name="number"
+                style={inputStyle}
+              />
+            </label>
+            <button type="submit" style={buttonStyle}>
+              {" "}
+              Add contact
+            </button>
+          </form>
+        </div>
       </>
     );
   }

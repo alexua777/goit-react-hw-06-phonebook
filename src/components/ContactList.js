@@ -34,6 +34,17 @@ const ContactList = ({ contacts, onRemoveContact }) => (
   </>
 );
 
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired
+    })
+  ).isRequired,
+  onRemoveContact: PropTypes.func.isRequired
+};
+
 const mapStateToProps = state => {
   const { contacts, filter } = state;
   const visibleContacts = contacts.filter(contact =>
@@ -51,13 +62,4 @@ const mapDispatchToProps = {
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
 
-ContactList.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired
-    })
-  ).isRequired,
-  onRemoveContact: PropTypes.func.isRequired
-};
+

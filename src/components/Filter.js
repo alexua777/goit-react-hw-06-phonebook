@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {connect} from 'react-redux';
+import { connect } from "react-redux";
 import phoneActions from "../redux/phonebook/phoneActions";
 
 const container = {
@@ -8,9 +8,18 @@ const container = {
   border: "2px solid grey",
   padding: "10px",
   boxShadow: "3px 2px 28px 6px rgba(0,0,0,0.75)",
-  width: "350px",
-}
+  width: "350px"
+};
 
+const inputStyle = {
+  border: "1px solid black",
+  display: "inline-block",
+  height: "34px",
+  width: "220px",
+  boxSizing: "border-box",
+  padding: "0 18px",
+  marginBottom: "10px"
+};
 
 const Filter = ({ value, filterChange }) => {
   return (
@@ -20,6 +29,7 @@ const Filter = ({ value, filterChange }) => {
         type="text"
         value={value}
         onChange={e => filterChange(e.target.value)}
+        style={inputStyle}
       />
     </div>
   );
@@ -31,13 +41,11 @@ Filter.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  value:state.filter,
-})
+  value: state.filter
+});
 
 const mapDispatchToProps = {
-  filterChange:phoneActions.filterPhone
-}
- 
-
+  filterChange: phoneActions.filterPhone
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);
