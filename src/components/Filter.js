@@ -3,9 +3,18 @@ import PropTypes from "prop-types";
 import {connect} from 'react-redux';
 import phoneActions from "../redux/phonebook/phoneActions";
 
+const container = {
+  margin: "25px",
+  border: "2px solid grey",
+  padding: "10px",
+  boxShadow: "3px 2px 28px 6px rgba(0,0,0,0.75)",
+  width: "350px",
+}
+
+
 const Filter = ({ value, filterChange }) => {
   return (
-    <div>
+    <div style={container}>
       <h2>Contacts </h2>
       <input
         type="text"
