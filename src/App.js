@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {connect} from 'react-redux';
 import PhoneBook from "./components/PhoneBook";
 import ContactList from "./components/ContactList";
 import Filter from "./components/Filter";
@@ -6,7 +7,7 @@ import Layout from "./components/Layout";
 import ThemeContext from "./context/ThemeContext";
 import { themeConfig } from "./context/ThemeContext";
 
-export default class App extends Component {
+ class App extends Component {
   state = {
     theme: "light"
   };
@@ -29,7 +30,8 @@ export default class App extends Component {
       >
         <Layout>
           <PhoneBook />
-          <Filter />
+          {this.props.contacts.length > 0 &&  <Filter />}
+         
 
           <ContactList />
         </Layout>
@@ -37,3 +39,9 @@ export default class App extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  contacts: state.contacts,
+})
+
+export default connect(mapStateToProps)(App);
